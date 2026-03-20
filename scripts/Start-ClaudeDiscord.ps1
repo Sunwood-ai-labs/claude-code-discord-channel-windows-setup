@@ -2,6 +2,7 @@ param(
     [switch]$EnsurePluginInstalled,
     [Alias("DangerousMode")]
     [switch]$DangerouslySkipPermissions,
+    [string]$WorkspacePath = (Get-Location).Path,
 
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$ClaudeArgs
@@ -150,6 +151,16 @@ if (-not (Test-DiscordTokenConfigured)) {
     throw "DISCORD_BOT_TOKEN is not configured. Run .\\scripts\\Set-DiscordBotToken.ps1 -Token <token> first."
 }
 
+$resolvedWorkspacePath = Resolve-Path -Path $WorkspacePath -ErrorAction SilentlyContinue
+if (-not $resolvedWorkspacePath) {
+    throw "Workspace path was not found: $WorkspacePath"
+}
+
+$workspaceDirectory = Get-Item -LiteralPath $resolvedWorkspacePath.Path
+if (-not $workspaceDirectory.PSIsContainer) {
+    throw "Workspace path is not a directory: $($resolvedWorkspacePath.Path)"
+}
+
 $arguments = @("--channels", "plugin:discord@claude-plugins-official")
 if ($DangerouslySkipPermissions) {
     $arguments += "--dangerously-skip-permissions"
@@ -163,6 +174,12 @@ if ($removedAnthropicVars.Count -gt 0) {
 if ($DangerouslySkipPermissions) {
     Write-Warning "Dangerous mode enabled. Claude will bypass permission checks for this session."
 }
+Write-Host "Workspace: $($resolvedWorkspacePath.Path)"
 Write-Host ("claude " + ($arguments -join " "))
 
-& claude @arguments
+Push-Location -LiteralPath $resolvedWorkspacePath.Path
+try {
+    & claude @arguments
+} finally {
+    Pop-Location
+}

@@ -54,6 +54,12 @@ Listening for channel messages from: plugin:discord@claude-plugins-official
 .\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
 ```
 
+別の workspace で Claude Code を開きたい場合:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -WorkspacePath "D:\Prj\remote-cc-ws"
+```
+
 ## 手順 5. pairing する
 
 1. Discord で bot に DM を送る

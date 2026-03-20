@@ -54,6 +54,12 @@ If you want to start the session with dangerous mode enabled:
 .\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
 ```
 
+If you want Claude Code to open a different workspace, pass it explicitly:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -WorkspacePath "D:\Prj\remote-cc-ws"
+```
+
 ## Step 5. Pair the bot
 
 1. Send a DM to the bot on Discord.

@@ -39,12 +39,15 @@ It:
 - checks Claude.ai login validity
 - removes `ANTHROPIC_*` API-billing overrides from the current process
 - verifies that the Discord plugin is installed
+- moves into the requested workspace before launch
 - starts `claude --channels plugin:discord@claude-plugins-official`
 
 Optional switch:
 
 - `-DangerouslySkipPermissions`
   - adds `--dangerously-skip-permissions` to the Claude launch command for that session
+- `-WorkspacePath "D:\Prj\remote-cc-ws"`
+  - launches Claude Code from a specific workspace directory instead of the current shell location
 
 ## `Login-ClaudeAiForChannels.ps1`
 

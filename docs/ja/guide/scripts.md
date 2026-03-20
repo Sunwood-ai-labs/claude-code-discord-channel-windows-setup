@@ -39,12 +39,15 @@ Windows 向けの安全な Discord channels 起動経路を実行します。
 - Claude.ai login の有効期限確認
 - `ANTHROPIC_*` API-billing overrides の除去
 - Discord plugin の導入確認
+- 指定された workspace へ移動してから起動
 - `claude --channels plugin:discord@claude-plugins-official` の起動
 
 任意のスイッチ:
 
 - `-DangerouslySkipPermissions`
   - その session に対して `--dangerously-skip-permissions` を付けて Claude を起動します
+- `-WorkspacePath "D:\Prj\remote-cc-ws"`
+  - 現在のシェル位置ではなく、指定した workspace ディレクトリで Claude Code を起動します
 
 ## `Login-ClaudeAiForChannels.ps1`
 

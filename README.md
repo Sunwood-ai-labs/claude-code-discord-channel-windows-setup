@@ -52,6 +52,12 @@ If you want to launch Claude in dangerous mode for the session:
 .\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
 ```
 
+If you want Claude Code to open a different workspace:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -WorkspacePath "D:\Prj\remote-cc-ws"
+```
+
 6. DM the bot on Discord.
 7. When Claude shows a pairing code, run:
 
@@ -72,7 +78,7 @@ If you want to launch Claude in dangerous mode for the session:
 | `scripts/Get-DiscordChannelStatus.ps1` | Check Claude Code, Bun, plugin, token, and access-policy state |
 | `scripts/Set-DiscordBotToken.ps1` | Save `DISCORD_BOT_TOKEN` into Claude's Discord channel `.env` |
 | `scripts/Import-DiscordBotTokenFromProjectEnv.ps1` | Read the token from this repo's `.env` and forward it safely |
-| `scripts/Start-ClaudeDiscord.ps1` | Launch Claude Code with `--channels plugin:discord@claude-plugins-official`, with optional dangerous mode |
+| `scripts/Start-ClaudeDiscord.ps1` | Launch Claude Code with `--channels plugin:discord@claude-plugins-official`, with optional dangerous mode and workspace override |
 | `scripts/Login-ClaudeAiForChannels.ps1` | Re-authenticate with `claude.ai` when channels are blocked by expired login |
 | `scripts/Fix-DiscordPluginWindows.ps1` | Reapply Windows-specific plugin fixes after plugin updates |
 
