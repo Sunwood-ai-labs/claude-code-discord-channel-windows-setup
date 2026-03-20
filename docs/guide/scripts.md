@@ -41,6 +41,11 @@ It:
 - verifies that the Discord plugin is installed
 - starts `claude --channels plugin:discord@claude-plugins-official`
 
+Optional switch:
+
+- `-DangerouslySkipPermissions`
+  - adds `--dangerously-skip-permissions` to the Claude launch command for that session
+
 ## `Login-ClaudeAiForChannels.ps1`
 
 Launches:

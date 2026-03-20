@@ -41,6 +41,11 @@ Windows 向けの安全な Discord channels 起動経路を実行します。
 - Discord plugin の導入確認
 - `claude --channels plugin:discord@claude-plugins-official` の起動
 
+任意のスイッチ:
+
+- `-DangerouslySkipPermissions`
+  - その session に対して `--dangerously-skip-permissions` を付けて Claude を起動します
+
 ## `Login-ClaudeAiForChannels.ps1`
 
 次を起動します。

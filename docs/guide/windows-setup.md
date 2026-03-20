@@ -48,6 +48,12 @@ Successful startup shows:
 Listening for channel messages from: plugin:discord@claude-plugins-official
 ```
 
+If you want to start the session with dangerous mode enabled:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
 ## Step 5. Pair the bot
 
 1. Send a DM to the bot on Discord.

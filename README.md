@@ -46,6 +46,12 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 .\scripts\Start-ClaudeDiscord.ps1
 ```
 
+If you want to launch Claude in dangerous mode for the session:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
 6. DM the bot on Discord.
 7. When Claude shows a pairing code, run:
 
@@ -66,7 +72,7 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 | `scripts/Get-DiscordChannelStatus.ps1` | Check Claude Code, Bun, plugin, token, and access-policy state |
 | `scripts/Set-DiscordBotToken.ps1` | Save `DISCORD_BOT_TOKEN` into Claude's Discord channel `.env` |
 | `scripts/Import-DiscordBotTokenFromProjectEnv.ps1` | Read the token from this repo's `.env` and forward it safely |
-| `scripts/Start-ClaudeDiscord.ps1` | Launch Claude Code with `--channels plugin:discord@claude-plugins-official` |
+| `scripts/Start-ClaudeDiscord.ps1` | Launch Claude Code with `--channels plugin:discord@claude-plugins-official`, with optional dangerous mode |
 | `scripts/Login-ClaudeAiForChannels.ps1` | Re-authenticate with `claude.ai` when channels are blocked by expired login |
 | `scripts/Fix-DiscordPluginWindows.ps1` | Reapply Windows-specific plugin fixes after plugin updates |
 

@@ -47,6 +47,12 @@ PowerShell スクリプトにより、token 設定、channels 起動、状態確
 .\scripts\Start-ClaudeDiscord.ps1
 ```
 
+この session をデンジャラスモードで起動したい場合:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
 6. Discord で bot に DM を送る
 7. Claude Code に pairing code が表示されたら次を実行する
 
@@ -67,7 +73,7 @@ PowerShell スクリプトにより、token 設定、channels 起動、状態確
 | `scripts/Get-DiscordChannelStatus.ps1` | Claude Code、Bun、plugin、token、access policy の状態確認 |
 | `scripts/Set-DiscordBotToken.ps1` | `DISCORD_BOT_TOKEN` を Claude の Discord channel `.env` に保存 |
 | `scripts/Import-DiscordBotTokenFromProjectEnv.ps1` | この repo の `.env` から token を安全に取り込む |
-| `scripts/Start-ClaudeDiscord.ps1` | `claude --channels plugin:discord@claude-plugins-official` で起動 |
+| `scripts/Start-ClaudeDiscord.ps1` | `claude --channels plugin:discord@claude-plugins-official` で起動し、必要ならデンジャラスモードも付与 |
 | `scripts/Login-ClaudeAiForChannels.ps1` | `claude.ai` の再ログインを補助 |
 | `scripts/Fix-DiscordPluginWindows.ps1` | plugin 更新後に必要な Windows 固有修正を再適用 |
 

@@ -48,6 +48,12 @@ project の `.env` に token がある場合:
 Listening for channel messages from: plugin:discord@claude-plugins-official
 ```
 
+この session をデンジャラスモード付きで起動したい場合:
+
+```powershell
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
 ## 手順 5. pairing する
 
 1. Discord で bot に DM を送る

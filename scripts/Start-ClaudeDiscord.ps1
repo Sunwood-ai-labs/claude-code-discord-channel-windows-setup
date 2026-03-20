@@ -1,5 +1,7 @@
 param(
     [switch]$EnsurePluginInstalled,
+    [Alias("DangerousMode")]
+    [switch]$DangerouslySkipPermissions,
 
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$ClaudeArgs
@@ -148,10 +150,18 @@ if (-not (Test-DiscordTokenConfigured)) {
     throw "DISCORD_BOT_TOKEN is not configured. Run .\\scripts\\Set-DiscordBotToken.ps1 -Token <token> first."
 }
 
-$arguments = @("--channels", "plugin:discord@claude-plugins-official") + $ClaudeArgs
+$arguments = @("--channels", "plugin:discord@claude-plugins-official")
+if ($DangerouslySkipPermissions) {
+    $arguments += "--dangerously-skip-permissions"
+}
+$arguments += $ClaudeArgs
+
 Write-Host "Starting Claude Code with Discord channel support..."
 if ($removedAnthropicVars.Count -gt 0) {
     Write-Host "Cleared API-billing env overrides: $($removedAnthropicVars -join ', ')"
+}
+if ($DangerouslySkipPermissions) {
+    Write-Warning "Dangerous mode enabled. Claude will bypass permission checks for this session."
 }
 Write-Host ("claude " + ($arguments -join " "))
 
