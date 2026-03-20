@@ -20,6 +20,7 @@ Try:
 Typical causes on Windows:
 
 - Bun is not resolved from the plugin runtime
+- the plugin `.mcp.json` became unreadable because of a BOM or bad encoding
 - the Discord plugin update replaced Windows-specific fixes
 - the token was not loaded into Claude's Discord `.env`
 

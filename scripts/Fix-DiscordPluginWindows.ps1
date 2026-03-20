@@ -20,7 +20,11 @@ foreach ($root in $pluginRoots) {
     if (Test-Path $mcpPath) {
         $mcp = Get-Content -Raw -Path $mcpPath | ConvertFrom-Json
         $mcp.mcpServers.discord.command = $bunCommand
-        $mcp | ConvertTo-Json -Depth 10 | Set-Content -Path $mcpPath -Encoding utf8
+        [System.IO.File]::WriteAllText(
+            $mcpPath,
+            ($mcp | ConvertTo-Json -Depth 10),
+            [System.Text.UTF8Encoding]::new($false)
+        )
     }
 
     $serverPath = Join-Path $root "server.ts"

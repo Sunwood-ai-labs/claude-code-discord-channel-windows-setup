@@ -61,5 +61,6 @@ after clearing API-billing variables that can interfere with channels.
 Reapplies the Windows-specific fixes required after plugin updates:
 
 - force the plugin to launch through `bun.cmd`
+- rewrite `.mcp.json` without BOM so Claude can parse the plugin manifest
 - repair `.env` token loading in the plugin runtime
 - repair DM allowlist fallback when `recipientId` is missing on fetched DM channels

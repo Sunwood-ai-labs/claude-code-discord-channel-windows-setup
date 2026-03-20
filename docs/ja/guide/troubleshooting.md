@@ -20,6 +20,7 @@
 Windows で多い原因:
 
 - plugin 実行時に Bun が解決できていない
+- plugin の `.mcp.json` が BOM や文字コード不整合で読めなくなっている
 - plugin update により Windows 固有修正が上書きされた
 - Claude 側の Discord `.env` に token が読み込まれていない
 
