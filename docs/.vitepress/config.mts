@@ -48,7 +48,7 @@ export default defineConfig({
           { text: "ガイド", link: "/ja/guide/windows-setup" },
           { text: "スクリプト", link: "/ja/guide/scripts" },
           { text: "トラブルシュート", link: "/ja/guide/troubleshooting" },
-          { text: "作業レポート", link: `${repo}/blob/main/SETUP_REPORT.md` }
+          { text: "詳細レポート", link: `${repo}/blob/main/SETUP_REPORT.md` }
         ],
         sidebar: [
           {

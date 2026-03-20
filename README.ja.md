@@ -1,12 +1,13 @@
 <p align="center">
-  <img src="./docs/public/hero.svg" width="220" alt="Claude Code Discord channels の Windows セットアップイメージ">
+  <img src="./docs/public/hero.svg" width="220" alt="Claude Code Discord channel の Windows セットアップ案内">
 </p>
 
 <h1 align="center">Claude Code Discord Channel Windows Setup</h1>
 
 <p align="center">
-  公式の Claude Code Discord channel plugin を Windows 上で安定して動かすためのセットアップキットです。
-  token 取り込み、channels 起動、Windows 固有の修正、トラブルシュートまでまとめています。
+  公式 Claude Code Discord channel plugin を Windows 上で安定して使うための
+  セットアップキットです。token 取り込み、channels 起動、Windows 固有修正、
+  トラブルシュートまでまとめています。
 </p>
 
 <p align="center">
@@ -27,18 +28,18 @@
   </a>
 </p>
 
-## 🚀 概要
+## 概要
 
-このリポジトリは、Anthropic 公式の Discord channel plugin を Windows 上の Claude Code で再現性高くセットアップするためのものです。
-PowerShell スクリプトにより、token 設定、起動、状態確認、`claude.ai` 再ログイン、Windows 固有修正をまとめて扱えます。
+このリポジトリは、公式 Discord channel plugin の導入を Windows 向けに再現しやすい形へ整理したものです。
+PowerShell スクリプトにより、token 設定、channels 起動、状態確認、`claude.ai` 再ログイン、Windows 固有修正まで一連で扱えます。
 
-## ⚡ クイックスタート
+## 最短手順
 
-1. Discord Developer Portal で Application と Bot を作成する
-2. `Message Content Intent` を有効にする
-3. Bot を参加中のサーバーへ招待する
-4. project `.env` に token を入れるか、直接スクリプトに渡す
-5. 次を順番に実行する
+1. Discord Developer Portal で application と bot を作成する
+2. `Message Content Intent` を有効化する
+3. bot を自分がいるサーバーへ招待する
+4. token を project の `.env` に置く、または直接スクリプトへ渡す
+5. 次のスクリプトを実行する
 
 ```powershell
 .\scripts\Import-DiscordBotTokenFromProjectEnv.ps1
@@ -47,58 +48,58 @@ PowerShell スクリプトにより、token 設定、起動、状態確認、`cl
 ```
 
 6. Discord で bot に DM を送る
-7. Claude Code 側に pairing code が出たら次を実行する
+7. Claude Code に pairing code が表示されたら次を実行する
 
 ```text
 /discord:access pair <code>
 ```
 
-8. pairing 成功後に allowlist へ切り替える
+8. pairing 成功後、必要に応じて allowlist モードへ切り替える
 
 ```text
 /discord:access policy allowlist
 ```
 
-## 🧰 同梱スクリプト
+## 同梱スクリプト
 
 | スクリプト | 役割 |
 | --- | --- |
-| `scripts/Get-DiscordChannelStatus.ps1` | Claude Code / Bun / plugin / token / access policy の状態確認 |
-| `scripts/Set-DiscordBotToken.ps1` | `DISCORD_BOT_TOKEN` を Claude 側 `.env` に保存 |
-| `scripts/Import-DiscordBotTokenFromProjectEnv.ps1` | project `.env` から token を安全に取り込み |
-| `scripts/Start-ClaudeDiscord.ps1` | `--channels plugin:discord@claude-plugins-official` で Claude を起動 |
-| `scripts/Login-ClaudeAiForChannels.ps1` | channels 用に `claude.ai` ログインをやり直す |
-| `scripts/Fix-DiscordPluginWindows.ps1` | plugin 更新後に Windows 固有修正を再適用 |
+| `scripts/Get-DiscordChannelStatus.ps1` | Claude Code、Bun、plugin、token、access policy の状態確認 |
+| `scripts/Set-DiscordBotToken.ps1` | `DISCORD_BOT_TOKEN` を Claude の Discord channel `.env` に保存 |
+| `scripts/Import-DiscordBotTokenFromProjectEnv.ps1` | この repo の `.env` から token を安全に取り込む |
+| `scripts/Start-ClaudeDiscord.ps1` | `claude --channels plugin:discord@claude-plugins-official` で起動 |
+| `scripts/Login-ClaudeAiForChannels.ps1` | `claude.ai` の再ログインを補助 |
+| `scripts/Fix-DiscordPluginWindows.ps1` | plugin 更新後に必要な Windows 固有修正を再適用 |
 
-## 🪟 Windows での注意点
+## Windows での注意点
 
-- channels は API-billing だけではなく `claude.ai` login を必要とします
-- `ANTHROPIC_*` 環境変数が入っていると channels が無効化されることがあります
-- plugin update 後に bot が online にならない場合は次を実行します
+- channels は API-billing だけでは使えず、有効な `claude.ai` ログインが必要です。
+- `ANTHROPIC_*` 環境変数が残っていると API-billing モードに入り、channels が無効になることがあります。
+- plugin 更新後に bot が online にならない場合は、次を再実行してください。
 
 ```powershell
 .\scripts\Fix-DiscordPluginWindows.ps1
 ```
 
-## 📚 ドキュメント
+## ドキュメント
 
-- GitHub Pages: [公開ドキュメント](https://sunwood-ai-labs.github.io/claude-code-discord-channel-windows-setup/)
+- プロジェクトサイト: [GitHub Pages docs](https://sunwood-ai-labs.github.io/claude-code-discord-channel-windows-setup/)
 - 英語ガイド: [docs/guide/windows-setup.md](./docs/guide/windows-setup.md)
 - 日本語ガイド: [docs/ja/guide/windows-setup.md](./docs/ja/guide/windows-setup.md)
 - 詳細レポート: [SETUP_REPORT.md](./SETUP_REPORT.md)
 
-## 🗂 リポジトリ構成
+## リポジトリ構成
 
 ```text
 .
-|-- docs/                         VitePress ドキュメント
+|-- docs/                         VitePress ドキュメントサイト
 |-- scripts/                      セットアップと修復用 PowerShell
 |-- README.md                     英語 README
 |-- README.ja.md                  日本語 README
-|-- SETUP_REPORT.md               詳細作業レポート
+|-- SETUP_REPORT.md               詳細レポート
 `-- LICENSE                       MIT ライセンス
 ```
 
-## 📄 ライセンス
+## ライセンス
 
 このリポジトリは [MIT License](./LICENSE) で公開しています。

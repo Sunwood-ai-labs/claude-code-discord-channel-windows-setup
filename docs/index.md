@@ -16,7 +16,7 @@ hero:
       text: Troubleshooting
       link: /guide/troubleshooting
     - theme: alt
-      text: 日本語
+      text: Japanese
       link: /ja/
 
 features:

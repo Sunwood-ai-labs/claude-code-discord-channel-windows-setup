@@ -12,7 +12,7 @@
 <p align="center">
   <a href="./README.md">English</a>
   |
-  <a href="./README.ja.md">日本語</a>
+  <a href="./README.ja.md">Japanese</a>
 </p>
 
 <p align="center">
@@ -27,12 +27,12 @@
   </a>
 </p>
 
-## 🚀 Overview
+## Overview
 
 This repository turns the official Discord channel plugin setup into a repeatable Windows workflow for Claude Code.
 It includes PowerShell helpers for token import, startup, status checks, Claude.ai relogin, and Windows-specific plugin fixes.
 
-## ⚡ Quick Start
+## Quick Start
 
 1. Create a Discord application and bot in the Discord Developer Portal.
 2. Enable `Message Content Intent`.
@@ -59,7 +59,7 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 /discord:access policy allowlist
 ```
 
-## 🧰 Included Scripts
+## Included Scripts
 
 | Script | Purpose |
 | --- | --- |
@@ -70,7 +70,7 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 | `scripts/Login-ClaudeAiForChannels.ps1` | Re-authenticate with `claude.ai` when channels are blocked by expired login |
 | `scripts/Fix-DiscordPluginWindows.ps1` | Reapply Windows-specific plugin fixes after plugin updates |
 
-## 🪟 Windows Notes
+## Windows Notes
 
 - Channels require a valid `claude.ai` login, not only API-billing credentials.
 - The startup helper clears `ANTHROPIC_*` overrides that can force Claude Code into API-billing mode.
@@ -80,14 +80,14 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 .\scripts\Fix-DiscordPluginWindows.ps1
 ```
 
-## 📚 Documentation
+## Documentation
 
 - Project docs: [GitHub Pages docs](https://sunwood-ai-labs.github.io/claude-code-discord-channel-windows-setup/)
 - English guide: [docs/guide/windows-setup.md](./docs/guide/windows-setup.md)
 - Japanese guide: [docs/ja/guide/windows-setup.md](./docs/ja/guide/windows-setup.md)
 - Detailed setup report: [SETUP_REPORT.md](./SETUP_REPORT.md)
 
-## 🗂 Repository Layout
+## Repository Layout
 
 ```text
 .
@@ -99,6 +99,6 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 `-- LICENSE                       MIT license
 ```
 
-## 📄 License
+## License
 
 This repository is released under the [MIT License](./LICENSE).
