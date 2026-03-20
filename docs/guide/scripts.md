@@ -62,3 +62,4 @@ Reapplies the Windows-specific fixes required after plugin updates:
 
 - force the plugin to launch through `bun.cmd`
 - repair `.env` token loading in the plugin runtime
+- repair DM allowlist fallback when `recipientId` is missing on fetched DM channels

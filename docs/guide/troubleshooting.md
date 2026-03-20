@@ -45,6 +45,19 @@ Then re-import it:
 .\scripts\Import-DiscordBotTokenFromProjectEnv.ps1
 ```
 
+## `reply` says the channel is not allowlisted
+
+If the Discord plugin says a DM channel is not allowlisted even though the sender is already paired, the plugin runtime may have lost the DM recipient mapping.
+
+Try:
+
+```powershell
+.\scripts\Fix-DiscordPluginWindows.ps1
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
+This reapplies the Windows plugin patches and refreshes the Discord channel server with the latest `access.json`.
+
 ## Pairing works but replies do not appear
 
 Check:

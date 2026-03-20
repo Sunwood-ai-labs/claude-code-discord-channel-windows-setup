@@ -45,6 +45,19 @@ C:\Users\<you>\.claude\channels\discord\.env
 .\scripts\Import-DiscordBotTokenFromProjectEnv.ps1
 ```
 
+## `reply` が `channel is not allowlisted` になる
+
+pairing 済みなのに DM channel が allowlist 外だと判断される場合は、plugin runtime 側で DM の相手情報が欠けている可能性があります。
+
+試すこと:
+
+```powershell
+.\scripts\Fix-DiscordPluginWindows.ps1
+.\scripts\Start-ClaudeDiscord.ps1 -DangerouslySkipPermissions
+```
+
+これで Windows 向け plugin 修正を再適用しつつ、最新の `access.json` を読む状態で Discord channel サーバーを起動し直せます。
+
 ## pairing は通るのに返信が出ない
 
 次を確認してください。

@@ -34,6 +34,49 @@ foreach ($root in $pluginRoots) {
             "const TOKEN = process.env.DISCORD_BOT_TOKEN",
             "const TOKEN = process.env.DISCORD_BOT_TOKEN?.trim()"
         )
+        $server = $server.Replace(
+            @'
+async function fetchTextChannel(id: string) {
+  const ch = await client.channels.fetch(id)
+  if (!ch || !ch.isTextBased()) {
+    throw new Error(`channel ${id} not found or not text-based`)
+  }
+  return ch
+}
+'@,
+            @'
+async function fetchTextChannel(id: string) {
+  const ch = await client.channels.fetch(id)
+  if (!ch || !ch.isTextBased()) {
+    throw new Error(`channel ${id} not found or not text-based`)
+  }
+  return ch
+}
+
+async function resolveAllowedDmChannel(ch: Awaited<ReturnType<typeof fetchTextChannel>>, allowFrom: string[]) {
+  if (ch.type !== ChannelType.DM) return null
+  if (typeof ch.recipientId === 'string' && ch.recipientId.length > 0) return ch
+
+  const cached = client.channels.cache.get(ch.id)
+  if (cached?.type === ChannelType.DM && typeof cached.recipientId === 'string' && cached.recipientId.length > 0) {
+    return cached
+  }
+
+  for (const userId of allowFrom) {
+    try {
+      const dm = await client.users.createDM(userId, { force: false })
+      if (dm.id === ch.id) return dm
+    } catch {}
+  }
+
+  return null
+}
+'@
+        )
+        $server = $server.Replace(
+            "  if (ch.type === ChannelType.DM) {`r`n    if (access.allowFrom.includes(ch.recipientId)) return ch",
+            "  if (ch.type === ChannelType.DM) {`r`n    const allowedDm = await resolveAllowedDmChannel(ch, access.allowFrom)`r`n    if (allowedDm) return allowedDm"
+        )
         [System.IO.File]::WriteAllText($serverPath, $server, [System.Text.UTF8Encoding]::new($false))
     }
 }

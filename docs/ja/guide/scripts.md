@@ -62,3 +62,4 @@ plugin 更新後に必要な Windows 固有修正を再適用します。
 
 - `bun.cmd` 経由で plugin を起動するよう補正
 - plugin 実行時の `.env` token 読み込み処理を修正
+- fetched DM channel で `recipientId` が欠けた場合の allowlist 判定も補修
