@@ -25,7 +25,7 @@ export default defineConfig({
           { text: "Guide", link: "/guide/windows-setup" },
           { text: "Scripts", link: "/guide/scripts" },
           { text: "Troubleshooting", link: "/guide/troubleshooting" },
-          { text: "Setup Report", link: `${repo}/blob/main/SETUP_REPORT.md` }
+          { text: "Setup Report", link: "/guide/setup-report" }
         ],
         sidebar: [
           {
@@ -33,7 +33,8 @@ export default defineConfig({
             items: [
               { text: "Windows Setup", link: "/guide/windows-setup" },
               { text: "Scripts", link: "/guide/scripts" },
-              { text: "Troubleshooting", link: "/guide/troubleshooting" }
+              { text: "Troubleshooting", link: "/guide/troubleshooting" },
+              { text: "Setup Report", link: "/guide/setup-report" }
             ]
           }
         ]
@@ -48,7 +49,7 @@ export default defineConfig({
           { text: "ガイド", link: "/ja/guide/windows-setup" },
           { text: "スクリプト", link: "/ja/guide/scripts" },
           { text: "トラブルシュート", link: "/ja/guide/troubleshooting" },
-          { text: "詳細レポート", link: `${repo}/blob/main/SETUP_REPORT.md` }
+          { text: "詳細レポート", link: "/ja/guide/setup-report" }
         ],
         sidebar: [
           {
@@ -56,7 +57,8 @@ export default defineConfig({
             items: [
               { text: "Windows セットアップ", link: "/ja/guide/windows-setup" },
               { text: "スクリプト一覧", link: "/ja/guide/scripts" },
-              { text: "トラブルシュート", link: "/ja/guide/troubleshooting" }
+              { text: "トラブルシュート", link: "/ja/guide/troubleshooting" },
+              { text: "詳細レポート", link: "/ja/guide/setup-report" }
             ]
           }
         ]

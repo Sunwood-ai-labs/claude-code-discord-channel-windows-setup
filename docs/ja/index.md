@@ -40,4 +40,5 @@ features:
 - [Windows セットアップ手順](/ja/guide/windows-setup)
 - [トラブルシュート](/ja/guide/troubleshooting)
 - [スクリプト一覧](/ja/guide/scripts)
+- [詳細レポートページ](/ja/guide/setup-report)
 - [詳細レポート](https://github.com/Sunwood-ai-labs/claude-code-discord-channel-windows-setup/blob/main/SETUP_REPORT.md)

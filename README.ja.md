@@ -86,6 +86,7 @@ PowerShell スクリプトにより、token 設定、channels 起動、状態確
 - プロジェクトサイト: [GitHub Pages docs](https://sunwood-ai-labs.github.io/claude-code-discord-channel-windows-setup/)
 - 英語ガイド: [docs/guide/windows-setup.md](./docs/guide/windows-setup.md)
 - 日本語ガイド: [docs/ja/guide/windows-setup.md](./docs/ja/guide/windows-setup.md)
+- docs 詳細レポート: [docs/ja/guide/setup-report.md](./docs/ja/guide/setup-report.md)
 - 詳細レポート: [SETUP_REPORT.md](./SETUP_REPORT.md)
 
 ## リポジトリ構成

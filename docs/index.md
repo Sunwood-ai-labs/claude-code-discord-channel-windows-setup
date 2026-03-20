@@ -40,4 +40,5 @@ features:
 - [Windows setup guide](/guide/windows-setup)
 - [Troubleshooting](/guide/troubleshooting)
 - [Scripts reference](/guide/scripts)
+- [Setup report](/guide/setup-report)
 - [Detailed setup report](https://github.com/Sunwood-ai-labs/claude-code-discord-channel-windows-setup/blob/main/SETUP_REPORT.md)

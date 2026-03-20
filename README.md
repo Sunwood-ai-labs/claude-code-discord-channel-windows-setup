@@ -85,6 +85,7 @@ It includes PowerShell helpers for token import, startup, status checks, Claude.
 - Project docs: [GitHub Pages docs](https://sunwood-ai-labs.github.io/claude-code-discord-channel-windows-setup/)
 - English guide: [docs/guide/windows-setup.md](./docs/guide/windows-setup.md)
 - Japanese guide: [docs/ja/guide/windows-setup.md](./docs/ja/guide/windows-setup.md)
+- Docs setup report: [docs/guide/setup-report.md](./docs/guide/setup-report.md)
 - Detailed setup report: [SETUP_REPORT.md](./SETUP_REPORT.md)
 
 ## Repository Layout
